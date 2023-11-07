@@ -1,5 +1,8 @@
 package kr.pet.mvc;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Customer {
     private String phoneNumber;
     private String ownerName;
@@ -7,7 +10,7 @@ public class Customer {
     private String address;
     private String species;
     private int birthYear;
-    //private List<MedicalRecord> medicalRecords; // 진료 기록을 저장하는 리스트
+    private List<MedicalRecord> medicalRecords; // 진료 기록을 저장하는 리스트
     public Customer(){   }
 
     public Customer(String phoneNumber, String ownerName, String petName, String address, String species, int birthYear) {
@@ -17,7 +20,7 @@ public class Customer {
         this.address = address;
         this.species = species;
         this.birthYear = birthYear;
-        // this.medicalRecords=new ArrayList<>(); // 빈 리스트로 초기화
+        this.medicalRecords=new ArrayList<>(); // 빈 리스트로 초기화
     }
 
     public String getPhoneNumber() {
@@ -68,4 +71,12 @@ public class Customer {
         this.birthYear = birthYear;
     }
 
+    public List<MedicalRecord> getMedicalRecords() {
+        return medicalRecords;
+    }
+
+    // 고객별로 진료 기록 등록
+    public void addMedicalRecords(MedicalRecord medicalRecord) {
+        medicalRecords.add(medicalRecord);
+    }
 }
